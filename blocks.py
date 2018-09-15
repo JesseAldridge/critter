@@ -2,20 +2,22 @@ import inspect, os, glob
 
 class Block:
   def init(self, *a):
+    if len(inspect.getargspec(self.init_).args) == len(a) + 1:
+      return self.init_(*a)
+
+  def init_(self):
     pass
 
-  # def init(self, *a):
-  #   if len(inspect.getargspec(self.init_).args) == len(a):
-
-  # def init_(self):
-  #   pass
+  def call(self, *a):
+    if len(inspect.getargspec(self.call_).args) == len(a) + 1:
+      return self.call_(*a)
 
 class IsLetter(Block):
-  def call(self, ch):
+  def call_(self, ch):
     return ch.isalpha()
 
 class FindAllFiles(Block):
-  def init(self, dir_path):
+  def init_(self, dir_path):
     self.dir_path = dir_path
     self.path_to_text = {}
     for path in glob.glob(os.path.join(dir_path, '*')):
@@ -23,7 +25,7 @@ class FindAllFiles(Block):
         text = f.read()
       self.path_to_text[path] = text.lower()
 
-  def call(self, query_string):
+  def call_(self, query_string):
     matches = []
     query_lower = query_string.lower()
 
@@ -35,4 +37,11 @@ class FindAllFiles(Block):
         matches.append(path)
     return matches
 
-block_classes = [IsLetter, FindAllFiles]
+class Fibonacci(Block):
+  def call_(self):
+    a, b = 1, 1
+    while True:
+      yield a
+      a, b = b, a + b
+
+block_classes = [IsLetter, FindAllFiles, Fibonacci]
