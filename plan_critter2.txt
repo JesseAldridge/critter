@@ -1,0 +1,73 @@
+What is the purpose?
+To test out a process for finding code modules given a specification
+
+Does something else have higher priority?
+No
+
+What is the first step?  second?
+Build a database of functions
+Write code by querying this database
+
+How are you going to test this?
+Will use it to build software
+
+How is this going to work in production?
+Users will write unit tests describing how functions should behave
+Functions matching those specifications will be retrieved
+The user will use those functions in the rest of their code
+
+How can we divide up the work?
+I can do it
+
+What are the input formats?
+unit tests
+
+What are the output formats?
+code blocks
+
+Is this change going to break existing processes?
+hopefully it will change the way programmers work
+what if people stop sharing code online?
+seems unlikely, same problems currently exist
+
+Is there an easier way?  (avoid coding)
+this is pretty easy
+it's already close to done
+
+Is it worth it?
+might be the start of a new way of programming, so yes
+
+Can I adapt something that already exists?
+Do I have enough time to see it through to completion?
+Can I preempt any blockers?
+  - big downloads, IT, app store reviews
+Is there anyone I can ask for advice?
+  - Is there a similar PR I can look at?
+  - Are there any docs for this system?
+What are the risks?
+How can we track usage?
+  - Add logging with timestamps
+Make sure everyone knows what they are doing
+  - Have the mobile team reviewed the plan?
+How are we going to integrate with other systems?
+Are there concurrency issues?
+How could this be done faster?
+  - Have the person who owns that part of the code do it
+Do you know what all the terms mean?
+  - "Post evaluation" comes before "Fixit"
+What are the edge cases?
+  - One item towards the bottom of the FAQ contains a bulleted list
+Can you enable ops to drive the content?
+Are any significant events coming up?
+  - Other project needs to launch in the middle of this one.
+Get design reviewed
+Is product ok with the plan?
+  - Sometimes they would rather get something quick and dirty.
+Create a diagram
+Are we following the spec exactly?
+  - The spec had camelCase but it should've had underscores.
+Do I have a fast feedback loop?
+  - Had to wait two minutes for a Hive query to run after every change.
+Is anyone else working on the same thing?
+  - Anomaly detection stepped on Data Science toes.
+Is this legal?

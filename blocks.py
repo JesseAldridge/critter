@@ -26,6 +26,9 @@ class FindAllFiles(Block):
       self.path_to_text[path] = text.lower()
 
   def call_(self, query_string):
+    if not hasattr(self, 'dir_path'):
+      return
+
     matches = []
     query_lower = query_string.lower()
 
@@ -44,4 +47,23 @@ class Fibonacci(Block):
       yield a
       a, b = b, a + b
 
-block_classes = [IsLetter, FindAllFiles, Fibonacci]
+class Primes(Block):
+  def isPrimeNumber(self, n):
+      if n==1:
+          return False
+      for x in range(2,n):
+          if n % x == 0:
+              return False
+      return True
+
+  def call_(self):
+      n = 1
+      while(True):
+          if self.isPrimeNumber(n): yield n
+          n += 1
+
+class PathExists(Block):
+  def call_(self, path):
+    return os.path.exists(path)
+
+block_classes = [IsLetter, FindAllFiles, Fibonacci, Primes, PathExists]
