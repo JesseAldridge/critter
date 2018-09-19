@@ -1,3 +1,5 @@
+// This is the only file the user provides
+
 const fs = require('fs');
 
 const nuke_dir = require('rimraf');
